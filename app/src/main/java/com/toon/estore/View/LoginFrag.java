@@ -97,15 +97,19 @@ public class LoginFrag extends Fragment {
         bt = (Button) getView().findViewById(R.id.lbutton);
 
 
+        String email= binding.lName.getText().toString();
+        String pasword= binding.lPass.getText().toString();
 
-        bt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email= binding.lName.getText().toString();
-                String pasword= binding.lPass.getText().toString();
-               userLogin(email,pasword);
-            }
-        });
+
+            bt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(email.isEmpty() || pasword.isEmpty()) {
+                        Toast.makeText(getContext(), "Fill All Fields", Toast.LENGTH_SHORT).show();
+                    }else userLogin(email,pasword);
+                }
+            });
+
     }
 
     private void userLogin(String email,String password) {

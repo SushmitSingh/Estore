@@ -2,4 +2,6 @@
 <resources>
     <string name="login">LogIn</string>
     <string name="signupitem">SignUp</string>
+    <string name="invalid_mail">Enter A Email</string>
+
 </resources>

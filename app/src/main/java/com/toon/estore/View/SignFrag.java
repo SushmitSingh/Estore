@@ -5,15 +5,16 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -57,6 +58,7 @@ public class SignFrag extends Fragment {
      * @return A new instance of fragment SignFrag.
      */
     // TODO: Rename and change types and number of parameters
+
     public static SignFrag newInstance(String param1, String param2) {
         SignFrag fragment = new SignFrag();
         Bundle args = new Bundle();
@@ -91,6 +93,7 @@ public class SignFrag extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         binding.SignUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +102,10 @@ public class SignFrag extends Fragment {
                 String name=binding.sName.getText().toString();
                 String phone=binding.sNum.getText().toString();
 
-                 userSignUp(email,password,name,phone);
+                if(email.isEmpty() || password.isEmpty()||name.isEmpty()||phone.isEmpty()){
+                    Toast.makeText(getContext(), " Min Password Length 6 And  Fill All Fields ", Toast.LENGTH_SHORT).show();
+                }
+                else  userSignUp(email,password,name,phone);
             }
         });
     }

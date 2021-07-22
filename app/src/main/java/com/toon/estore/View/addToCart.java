@@ -10,6 +10,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.razorpay.Checkout;
+import com.razorpay.PaymentResultListener;
 import com.toon.estore.Adapter.CartViewAdapter;
 
 import com.toon.estore.Model.productinfo;
@@ -30,7 +32,7 @@ import org.json.JSONObject;
 import java.text.DecimalFormat;
 import java.util.Map;
 
-public class addToCart extends AppCompatActivity {
+public class addToCart extends AppCompatActivity implements PaymentResultListener {
     ActivityAddToCartBinding binding;
     RecyclerView ryView;
     CartViewAdapter myAdapter;
@@ -86,6 +88,7 @@ public class addToCart extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void makePayment() {
@@ -135,6 +138,7 @@ public class addToCart extends AppCompatActivity {
         }
 
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -147,5 +151,18 @@ public class addToCart extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         myAdapter.stopListening();
+    }
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+    @Override
+    public void onPaymentSuccess(String s) {
+        Toast.makeText(this, "Succeesssssss"+s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 }
