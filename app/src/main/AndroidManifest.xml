@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.toon.estore">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Estore">
+        <activity android:name=".View.ProductInfoActivity"></activity>
+        <activity android:name=".View.CatActivity" />
+        <activity android:name=".View.addToCart" />
+        <activity android:name=".View.UserProfile" />
+        <activity android:name=".View.LogSign" />
+        <activity android:name=".View.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".View.MainActivity" />
+    </application>
+
+</manifest>
