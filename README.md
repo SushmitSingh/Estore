@@ -13,7 +13,7 @@ E Store Is A E-Com Android Project(Skeleton App) Using Java
 
 ## Project Link
 ```bash
-[https://github.com/SushmitSingh/Estore/tree/master](https://github.com/SushmitSingh/Estore/tree/master)
+https://github.com/SushmitSingh/Estore/tree/master
 ```
 
 ## Additional functionality of This app:
